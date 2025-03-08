@@ -1450,35 +1450,36 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
 		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
+		},
 		() => "Timer",
 		() => "main-menu",
 		() => 976,
 		() => 1488,
 		() => 1104,
 		() => 720,
+		() => 2,
+		() => 3,
+		() => 4,
 		() => "TIMER",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
 			return () => f0((v1.GetValue() / 2));
 		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => f0((v1.GetValue() / 3));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => f0((v1.GetValue() / 6));
+		},
 		() => "ClockTicking",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => f0((v1.GetValue() / 10));
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => f0((v1.GetValue() / 30));
-		},
-		() => 4,
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => v0.GetValue();
-		},
-		() => 61,
 		() => 1.7,
 		() => 1.3,
 		() => "FUNCTIONS",
@@ -1494,8 +1495,6 @@ self.C3_ExpressionFuncs = [
 			const v0 = p._GetNode(0).GetVar();
 			return () => (5 + v0.GetValue());
 		},
-		() => 2,
-		() => 3,
 		() => 80,
 		() => -5,
 		() => "Layer Top",
@@ -1542,8 +1541,19 @@ self.C3_ExpressionFuncs = [
 			return () => (v0.GetValue() * 18.366);
 		},
 		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => and(Math.ceil(((v0.GetValue() * 100) / 18)), " %");
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => and(f0(0, Math.ceil(((v1.GetValue() * 100) / 18))), " %");
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => f0(0, (v1.GetValue() - 1));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => f0(0, (v1.GetValue() * 18.366));
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
